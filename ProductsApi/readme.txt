@@ -1,0 +1,1 @@
+﻿This is simple webapi2 project in which cross origin request is enabled to work with mytodo angular js project
