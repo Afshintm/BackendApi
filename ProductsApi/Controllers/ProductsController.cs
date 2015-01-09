@@ -10,6 +10,7 @@ namespace ProductsApi.Controllers
 	[EnableCors("*","*","*")]
     public class ProductsController : ApiController
     {
+		
 	    Product[] Products =
 	    {
 		    new Product{Id=1 , Name="Eternity" ,Category="Book" ,Price= 24.5m} ,
