@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
 using ProductsApi.Models ;
 namespace ProductsApi.Controllers
 {
@@ -16,8 +17,8 @@ namespace ProductsApi.Controllers
 		    new Product{Id=1 , Name="Eternity" ,Category="Book" ,Price= 24.5m} ,
 		    new Product{Id=2 , Name="C# for dummies" ,Category="Book" ,Price= 14.5m} ,
 		    new Product{Id=3 , Name="Tommato" ,Category="Groceries" ,Price= 8.5m} ,
-		    new Product{Id=3 , Name="Pen" ,Category="Stationary" ,Price= 24.5m} ,
-		    new Product{Id=3 , Name="Pencil" ,Category="Stationary" ,Price= 24.5m} 
+		    new Product{Id=4 , Name="Pen" ,Category="Stationary" ,Price= 24.5m} ,
+		    new Product{Id=5 , Name="Pencil" ,Category="Stationary" ,Price= 24.5m} 
 	    };
 
 		/// <summary>
@@ -31,7 +32,7 @@ namespace ProductsApi.Controllers
 	    public IQueryable<Product> GetProducts()
 	    {
 		    return Products.AsQueryable();
-		}
+	    }
 
 		
 		/// <summary>

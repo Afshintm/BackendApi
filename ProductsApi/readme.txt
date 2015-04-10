@@ -1,1 +1,2 @@
 ﻿This is simple webapi2 project in which cross origin request is enabled to work with mytodo angular js project
+add oData support for sending get request like  api/products?$top=2 to get top 2 result over the wire instade of entire data
