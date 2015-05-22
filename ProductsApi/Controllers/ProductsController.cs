@@ -4,15 +4,22 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
+using ProductsApi.BusinessServices;
+using ProductsApi.Infrastructure;
 using ProductsApi.Models ;
 namespace ProductsApi.Controllers
 {
 	[RoutePrefix("api/Products")]
 	[EnableCors("*","*","*")]
-    public class ProductsController : ApiController
-    {
-		
-	    Product[] Products =
+    public class ProductsController : BaseApiController
+	{
+		private readonly IProductServices _productsService;
+		public ProductsController(IProductServices productService)
+		{
+			_productsService = productService;
+		}
+
+		Product[] Products =
 	    {
 		    new Product{Id=1 , Name="Eternity" ,Category="Book" ,Price= 24.5m} ,
 		    new Product{Id=2 , Name="C# for dummies" ,Category="Book" ,Price= 14.5m} ,

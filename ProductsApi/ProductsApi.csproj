@@ -115,21 +115,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BusinessServices\IProductServices.cs" />
     <Compile Include="BusinessServices\IService1.cs" />
     <Compile Include="BusinessServices\IService2.cs" />
     <Compile Include="BusinessServices\IService3.cs" />
     <Compile Include="BusinessServices\MyService.cs" />
+    <Compile Include="BusinessServices\ProductServices.cs" />
     <Compile Include="BusinessServices\Service1.cs" />
     <Compile Include="BusinessServices\Service2.cs" />
     <Compile Include="BusinessServices\Service3.cs" />
     <Compile Include="BusinessServices\Service4.cs" />
     <Compile Include="BusinessServices\ServiceBase.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="DataAccess\IDbContext.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="DataAccess\RepositoryQuery.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\BaseApiController.cs" />
     <Compile Include="Infrastructure\Config.cs" />
     <Compile Include="Infrastructure\ExceptionHandler.cs" />
     <Compile Include="Infrastructure\IConfig.cs" />
@@ -157,9 +163,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IOC.Core\Ioc.Core.csproj">
+    <ProjectReference Include="..\Libraries\DataAccess\DataAccess.csproj">
+      <Project>{4cf25ef8-01de-4a51-8958-4ebfed5cfb14}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\Ioc.Core\Ioc.Core.csproj">
       <Project>{debc2eb8-5177-4132-ab80-f5281b908803}</Project>
       <Name>Ioc.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\SalesModel\SalesModel.csproj">
+      <Project>{97bad7ec-3eda-4d58-9d14-b303dc892b41}</Project>
+      <Name>SalesModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
