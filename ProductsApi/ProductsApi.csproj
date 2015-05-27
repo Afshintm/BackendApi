@@ -171,6 +171,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessServices\BusinessServices.Dtos\BusinessServices.Dtos.csproj">
+      <Project>{2ff1191c-92ee-4b82-a9c1-f52c785ed916}</Project>
+      <Name>BusinessServices.Dtos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessServices\BusinessServices\BusinessServices.csproj">
       <Project>{498f1a76-bbc9-444f-9945-85b36d1c663c}</Project>
       <Name>BusinessServices</Name>

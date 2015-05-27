@@ -1,13 +1,11 @@
 ﻿using System;
-using System.CodeDom;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Routing;
 using BusinessServices;
+using BusinessServices.Dtos;
 using Common;
 using DbContexts;
 using ProductsApi.Infrastructure;
@@ -41,7 +39,17 @@ namespace ProductsApi.Controllers
 		    new Product{Name="Pencil" ,Price= 24.5m} 
 	    };
 
-		/// <summary>
+		private Product[] fakeProducts =
+		{
+			new Product {Id = 1, Name = "Eternity", Price = 24.5m},
+			new Product {Id = 2, Name = "C# for dummies", Price = 14.5m},
+			new Product {Id = 3, Name = "Tommato", Price = 8.5m},
+			new Product {Id = 4, Name = "Pen", Price = 24.5m},
+			new Product {Id = 5, Name = "Pencil", Price = 24.5m}
+
+		};
+		
+			/// <summary>
 		/// Returns a list of products
 		/// </summary>
 		/// <returns>Returns a CLR type which is getting serialised based on Accept values of the request </returns>
@@ -49,9 +57,9 @@ namespace ProductsApi.Controllers
 		 
 		[Route("")]
 		[HttpGet]
-	    public IQueryable<Product> GetProducts()
+	    public IQueryable<ProductDto> GetProducts()
 	    {
-		    return Products.AsQueryable();
+		    return fakeProducts.AsQueryable().RemoveObjectState();
 	    }
 
 		
@@ -65,7 +73,7 @@ namespace ProductsApi.Controllers
 		[HttpGet]
 	    public HttpResponseMessage GetProduct(int id)
 	    {
-		    var p = Products.FirstOrDefault(i => i.Id == id);
+		    var p = fakeProducts.FirstOrDefault(i => i.Id == id).ToProductDto();
 		    if (p != null)
 			    return Request.CreateResponse(HttpStatusCode.OK, p);
 		    else
@@ -82,7 +90,7 @@ namespace ProductsApi.Controllers
 		[HttpGet]
 		public IHttpActionResult Product(int id)
 		{
-			var p = Products.FirstOrDefault(item => item.Id == id);
+			var p = fakeProducts.FirstOrDefault(item => item.Id == id).ToProductDto();
 
 			if (p != null)
 				return Ok(p);

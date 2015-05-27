@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
 
 namespace SalesModel
 {
@@ -13,4 +15,6 @@ namespace SalesModel
 
 		public virtual ICollection<ProductCategory> ProductCategories { get; set; }
 	}
+
+
 }

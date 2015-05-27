@@ -8,3 +8,6 @@
 3-	Dependency Injection used in this project is the most addictive dependency 
 injection, Autofac.
 4- Ioc.Core is a wrapper library to cover Autofac Dependency for both MVC and WebApi projects
+
+5- The project is using a data access framework based on Domain Driven Development to provide Unit Of Work, Repository and Bounded Contexts based on Entityframework code first
+6 - Also by the time we get backend sql server database working we will feed front-end with a fake product list
