@@ -134,9 +134,7 @@
     <Compile Include="BusinessServices\Service3.cs" />
     <Compile Include="BusinessServices\Service4.cs" />
     <Compile Include="BusinessServices\ServiceBase.cs" />
-    <Compile Include="Controllers\P.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\SaleContext.cs" />
     <Compile Include="DataAccess\IDbContext.cs" />
     <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="DataAccess\RepositoryQuery.cs" />
