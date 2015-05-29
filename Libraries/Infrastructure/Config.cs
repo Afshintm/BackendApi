@@ -21,7 +21,7 @@ namespace Infrastructure
                 }
                 return value;
             }
-            catch (ConfigurationErrorsException e)
+            catch (ConfigurationErrorsException )
             {
                 return defaultValue;
             }

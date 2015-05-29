@@ -52,10 +52,6 @@
       <Project>{51ebdc16-245f-4f2c-9056-32556f04bc63}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\Ioc.Core\Ioc.Core.csproj">
-      <Project>{debc2eb8-5177-4132-ab80-f5281b908803}</Project>
-      <Name>Ioc.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
