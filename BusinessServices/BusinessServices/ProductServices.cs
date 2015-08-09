@@ -23,5 +23,16 @@ namespace BusinessServices
 		{
 			return await Task.Run(()=> new List<Product>().AsQueryable());
 		}
-	}
+
+        public IEnumerable<Product> GetAllEnumerated() 
+        {
+            return new List<Product>();
+        }
+
+
+        public IEnumerable<ProductDto> GetAll()
+        {
+            return new List<ProductDto>();
+        }
+    }
 }

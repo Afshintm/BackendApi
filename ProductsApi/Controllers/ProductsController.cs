@@ -13,6 +13,8 @@ using DbContexts;
 using ProductsApi.Infrastructure;
 using SalesModel;
 using DataAccess;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ProductsApi.Controllers
 {
@@ -134,5 +136,20 @@ namespace ProductsApi.Controllers
 
 
 		}
+
+        [Route("~/newapi/products")]
+        [HttpGet]
+        public IHttpActionResult GetProductsFromRepo() {
+            var result = _productsService.GetAllEnumerated();
+            return Ok(JsonConvert.SerializeObject(result));
+        }
+        [Route("~/newapi/productdtos")]
+        [HttpGet]
+        public IHttpActionResult GetProductDTOsFromRepo()
+        {
+            var result = _productsService.GetAll();
+            return Ok(result);
+        }
+
 	}
 }
