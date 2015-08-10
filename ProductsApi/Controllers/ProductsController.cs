@@ -63,6 +63,7 @@ namespace ProductsApi.Controllers
 		/// <param name="id">the id of the requsted product</param>
 		/// <returns>Returns an HttpResponseMessage class containing the serialized product object </returns>
 		/// This way we can have more control over the content returned as response.  
+        /// This is a test documentation
 		[Route("{id:int}")]
 		[HttpGet]
 	    public HttpResponseMessage GetProduct(int id)
