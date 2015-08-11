@@ -483,27 +483,47 @@
         </member>
         <member name="M:ProductsApi.Controllers.ProductsController.GetProducts">
             <summary>
-            Returns a list of products
+            Returns a list of products hardcoded in the Product controller
+            Content negotiation is happening to find out what content is acceptable for the request. default is json.
             </summary>
             <returns>Returns a CLR type which is getting serialised based on Accept values of the request </returns>
-            Content negotiation is happening to find out what content is acceptable for the request. default is json.
         </member>
         <member name="M:ProductsApi.Controllers.ProductsController.GetProduct(System.Int32)">
             <summary>
-            
+            Returning an HttpResponseMessage class containing the serialized product object
+            This way we can have more control over the content returned as response.  
+            Product returned are hardcoded and there is no database behind it
             </summary>
             <param name="id">the id of the requsted product</param>
             <returns>Returns an HttpResponseMessage class containing the serialized product object </returns>
-            This way we can have more control over the content returned as response.  
-            This is a test documentation
         </member>
         <member name="M:ProductsApi.Controllers.ProductsController.Product(System.Int32)">
             <summary>
             returns IHttpActionResult which in turn calls the ExecuteAsync method to asyncronusely returning an HttpResponseMessage 
+            using ~ in Route attribute, we override controller attribute routing
+            Product returned are hardcoded and there is no database behind it
             </summary>
             <param name="id">the id of the requested product</param>
             <returns>returns an Async HttpResponseMessage</returns>
-            using ~ in Route attribute, we override 
+        </member>
+        <member name="M:ProductsApi.Controllers.ProductsController.InitDatabase">
+            <summary>
+            This api creates a database on local SQLExpress and insert some dummy data. check the webconfig file for details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductsApi.Controllers.ProductsController.GetProductsFromRepo">
+            <summary>
+            This api works with IProductServices which has resolved to NewProductServices. as Data is retreived from database default serializer had issue serializing complex models 
+            So, I used JsonConvertor.SerializeObject to serialize the list of complex db models.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductsApi.Controllers.ProductsController.GetProductDTOsFromRepo">
+            <summary>
+            In this api I used DTO which are a simple reperesentation of complex model. So default serializer can serialize it easily.
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
