@@ -483,7 +483,7 @@
         </member>
         <member name="M:ProductsApi.Controllers.ProductsController.GetProducts">
             <summary>
-            Returns a list of products hardcoded in the Product controller
+            Returns a list of products hardcoded in the Product controller we are not getting data from db
             Content negotiation is happening to find out what content is acceptable for the request. default is json.
             </summary>
             <returns>Returns a CLR type which is getting serialised based on Accept values of the request </returns>
