@@ -80,7 +80,7 @@ namespace ProductsApi
 
             builder.RegisterType<Service2>().As<IService2>().InstancePerDependency();
 
-			builder.RegisterType<ProductServices>().As<IProductServices>().InstancePerDependency();
+			builder.RegisterType<NewProductServices>().As<IProductServices>().InstancePerDependency();
 
             //builder.Register<Func<string, int, IClassA>>(c => { return new ClassA(); });
 
