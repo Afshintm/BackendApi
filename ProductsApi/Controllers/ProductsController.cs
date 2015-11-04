@@ -13,6 +13,8 @@ using DbContexts;
 using ProductsApi.Infrastructure;
 using SalesModel;
 using DataAccess;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ProductsApi.Controllers
 {
@@ -42,11 +44,10 @@ namespace ProductsApi.Controllers
 	    };
 
 		/// <summary>
-		/// Returns a list of products
+		/// Returns a list of products hardcoded in the Product controller we are not getting data from db
+        /// Content negotiation is happening to find out what content is acceptable for the request. default is json.
 		/// </summary>
 		/// <returns>Returns a CLR type which is getting serialised based on Accept values of the request </returns>
-		/// Content negotiation is happening to find out what content is acceptable for the request. default is json.
-		 
 		[Route("")]
 		[HttpGet]
 	    public IQueryable<Product> GetProducts()
@@ -56,11 +57,12 @@ namespace ProductsApi.Controllers
 
 		
 		/// <summary>
-		/// 
-		/// </summary>
+        /// Returning an HttpResponseMessage class containing the serialized product object
+        /// This way we can have more control over the content returned as response.  
+        /// Product returned are hardcoded and there is no database behind it
+        /// </summary>
 		/// <param name="id">the id of the requsted product</param>
 		/// <returns>Returns an HttpResponseMessage class containing the serialized product object </returns>
-		/// This way we can have more control over the content returned as response.  
 		[Route("{id:int}")]
 		[HttpGet]
 	    public HttpResponseMessage GetProduct(int id)
@@ -74,10 +76,11 @@ namespace ProductsApi.Controllers
 		
 		/// <summary>
 		/// returns IHttpActionResult which in turn calls the ExecuteAsync method to asyncronusely returning an HttpResponseMessage 
+        /// using ~ in Route attribute, we override controller attribute routing
+        /// Product returned are hardcoded and there is no database behind it
 		/// </summary>
 		/// <param name="id">the id of the requested product</param>
 		/// <returns>returns an Async HttpResponseMessage</returns>
-		/// using ~ in Route attribute, we override 
 		[Route("~/api/Product/{id:int}")]
 		[HttpGet]
 		public IHttpActionResult Product(int id)
@@ -90,9 +93,14 @@ namespace ProductsApi.Controllers
 			return NotFound();
 		}
 
+        /// <summary>
+        /// This api creates a database on local SQLExpress and insert some dummy data. check the webconfig file for details
+        /// </summary>
+        /// <returns></returns>
 		[Route("~/api/InitDatabase")]
 		[HttpGet]
-		public IHttpActionResult InitDatabase()
+		
+        public IHttpActionResult InitDatabase()
 		{
 			try
 			{
@@ -134,5 +142,29 @@ namespace ProductsApi.Controllers
 
 
 		}
+        /// <summary>
+        /// This api works with IProductServices which has resolved to NewProductServices. as Data is retreived from database default serializer had issue serializing complex models 
+        /// So, I used JsonConvertor.SerializeObject to serialize the list of complex db models.
+        /// </summary>
+        /// <returns></returns>
+        [Route("~/newapi/products")]
+        [HttpGet]
+        public IHttpActionResult GetProductsFromRepo() {
+            var result = _productsService.GetAllEnumerated();
+            return Ok(JsonConvert.SerializeObject(result));
+        }
+
+        /// <summary>
+        /// In this api I used DTO which are a simple reperesentation of complex model. So default serializer can serialize it easily.
+        /// </summary>
+        /// <returns></returns>
+        [Route("~/newapi/productdtos")]
+        [HttpGet]
+        public IHttpActionResult GetProductDTOsFromRepo()
+        {
+            var result = _productsService.GetAll();
+            return Ok(result);
+        }
+
 	}
 }
