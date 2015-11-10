@@ -147,6 +147,7 @@
     <Content Include="Docs\XmlDocument.xml" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="OldConfig.txt" />
     <Content Include="readme.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -243,6 +244,7 @@
     <None Include="Properties\PublishProfiles\afshinproductapi.pubxml" />
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
