@@ -200,6 +200,10 @@
     <Compile Include="DataAccess\RepositoryQuery.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DependencyRegistrar.cs" />
+    <Compile Include="Filters\ApiAuthenticationFilter.cs" />
+    <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Filters\UserService.cs" />
+    <Compile Include="Filters\GenericAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

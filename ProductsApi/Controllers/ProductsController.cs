@@ -15,9 +15,11 @@ using SalesModel;
 using DataAccess;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using ProductsApi.Filters;
 
 namespace ProductsApi.Controllers
 {
+    [ApiAuthenticationFilter]
 	[RoutePrefix("api/Products")]
 	[EnableCors("*","*","*")]
     public class ProductsController : BaseApiController
