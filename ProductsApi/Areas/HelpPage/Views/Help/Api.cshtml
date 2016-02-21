@@ -13,10 +13,15 @@
         <div class="content-wrapper">
             <p>
                 @Html.ActionLink("Help Page Home", "Index")
-            </p>
+            </p> 
         </div>
     </section>
     <section class="content-wrapper main-content clear-fix">
         @Html.DisplayForModel()
     </section>
+    @Html.DisplayForModel("TestClientDialogs")
 </div>
+@section Scripts{
+@Html.DisplayForModel("TestClientReferences")
+
+    }
