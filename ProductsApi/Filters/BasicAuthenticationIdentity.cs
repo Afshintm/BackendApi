@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
+﻿using System.Security.Principal;
 
 namespace ProductsApi.Filters
 {
@@ -32,6 +28,7 @@ namespace ProductsApi.Filters
 			public BasicAuthenticationIdentity(string userName, string password)
 				: base(userName, "Basic")
 			{
+				UserId = 1;
 				Password = password;
 				UserName = userName;
 			}

@@ -268,10 +268,6 @@
     <Compile Include="BusinessServices\Service4.cs" />
     <Compile Include="BusinessServices\ServiceBase.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="DataAccess\IDbContext.cs" />
-    <Compile Include="DataAccess\Repository.cs" />
-    <Compile Include="DataAccess\RepositoryQuery.cs" />
-    <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Filters\ApiAuthenticationFilter.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />

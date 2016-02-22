@@ -8,3 +8,6 @@
 3-	Dependency Injection used in this project is the most addictive dependency 
 injection, Autofac.
 4- Ioc.Core is a wrapper library to cover Autofac Dependency for both MVC and WebApi projects
+
+5- to authenticate add a Header with the value of "Basic YWZzaGluOlBhc3N3b3JkIQ=="
+then you are good to go
