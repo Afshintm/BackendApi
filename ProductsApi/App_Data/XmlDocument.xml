@@ -525,5 +525,100 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:ProductsApi.Filters.ApiAuthenticationFilter">
+            <summary>
+            Custom Authentication Filter Extending basic Authentication
+            </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor">
+            <summary>
+            Public default Constructor
+            </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor(System.Boolean)">
+            <summary>
+            parameter isActive explicitly enables/disables this filetr.
+            </summary>
+            <param name="isActive"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Checks basic authentication request
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Virtual method.Can be overriden with the custom Authorization.
+            </summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <param name="filterContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.FetchAuthHeader(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Checks for autrhorization header in the request and parses it, creates user credentials and returns as BasicAuthenticationIdentity
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.ChallengeAuthRequest(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Send the Authentication Challenge request
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.ApiAuthenticationFilter.#ctor">
+            <summary>
+            Default Authentication Constructor
+            </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.ApiAuthenticationFilter.#ctor(System.Boolean)">
+            <summary>
+            AuthenticationFilter constructor with isActive parameter
+            </summary>
+            <param name="isActive"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.ApiAuthenticationFilter.OnAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Protected overriden method for authorizing user
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="actionContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ProductsApi.Filters.BasicAuthenticationIdentity">
+            <summary>
+            Basic Authentication identity
+            </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.BasicAuthenticationIdentity.#ctor(System.String,System.String)">
+            <summary>
+            Basic Authentication Identity Constructor
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+        </member>
+        <member name="P:ProductsApi.Filters.BasicAuthenticationIdentity.Password">
+            <summary>
+            Get/Set for password
+            </summary>
+        </member>
+        <member name="P:ProductsApi.Filters.BasicAuthenticationIdentity.UserName">
+            <summary>
+            Get/Set for UserName
+            </summary>
+        </member>
+        <member name="P:ProductsApi.Filters.BasicAuthenticationIdentity.UserId">
+            <summary>
+            Get/Set for UserId
+            </summary>
+        </member>
+        <member name="T:ProductsApi.Filters.UserProvider">
+            <summary>
+            read from database
+            </summary>
+        </member>
     </members>
 </doc>
