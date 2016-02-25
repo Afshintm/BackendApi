@@ -270,7 +270,10 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Filters\ApiAuthenticationFilter.cs" />
+    <Compile Include="Filters\BasicAuthenticationHandler.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Filters\Class1.cs" />
+    <Compile Include="Filters\IdentityBasicAuthenticationAttribute.cs" />
     <Compile Include="Filters\UserService.cs" />
     <Compile Include="Filters\GenericAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
