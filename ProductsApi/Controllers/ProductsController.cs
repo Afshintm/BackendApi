@@ -19,7 +19,8 @@ using ProductsApi.Filters;
 
 namespace ProductsApi.Controllers
 {
-    [ApiAuthenticationFilter]
+//    [ApiAuthenticationFilter]
+    [MyAuthorizationFilter]
 	[RoutePrefix("api/Products")]
 	[EnableCors("*","*","*")]
     public class ProductsController : BaseApiController

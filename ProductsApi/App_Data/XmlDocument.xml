@@ -588,6 +588,19 @@
             <param name="actionContext"></param>
             <returns></returns>
         </member>
+        <member name="M:ProductsApi.Filters.BasicAuthenticationHandler.ParseAuthorizationHeader(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Parses the Authorization header and creates user credentials
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.BasicAuthenticationHandler.Challenge(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Send the Authentication Challenge request
+            </summary>
+            <param name="message"></param>
+            <param name="actionContext"></param>
+        </member>
         <member name="T:ProductsApi.Filters.BasicAuthenticationIdentity">
             <summary>
             Basic Authentication identity

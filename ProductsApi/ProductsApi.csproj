@@ -274,6 +274,7 @@
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
     <Compile Include="Filters\Class1.cs" />
     <Compile Include="Filters\IdentityBasicAuthenticationAttribute.cs" />
+    <Compile Include="Filters\MyAuthorizationFilter.cs" />
     <Compile Include="Filters\UserService.cs" />
     <Compile Include="Filters\GenericAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">

@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using Ioc.Core.Infrastructure;
 using System.Web.Mvc;
+using ProductsApi.Filters;
 
 namespace ProductsApi
 {
@@ -21,6 +22,8 @@ namespace ProductsApi
 
 			// set DependencyResolver for MVC 
 			//DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Current.ContainerManager.Container);
+
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationHandler());
 
             AreaRegistration.RegisterAllAreas();
 
