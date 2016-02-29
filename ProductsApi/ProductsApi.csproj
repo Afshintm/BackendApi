@@ -256,17 +256,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="BusinessServices\IProductServices.cs" />
-    <Compile Include="BusinessServices\IService1.cs" />
-    <Compile Include="BusinessServices\IService2.cs" />
-    <Compile Include="BusinessServices\IService3.cs" />
-    <Compile Include="BusinessServices\MyService.cs" />
-    <Compile Include="BusinessServices\ProductServices.cs" />
-    <Compile Include="BusinessServices\Service1.cs" />
-    <Compile Include="BusinessServices\Service2.cs" />
-    <Compile Include="BusinessServices\Service3.cs" />
-    <Compile Include="BusinessServices\Service4.cs" />
-    <Compile Include="BusinessServices\ServiceBase.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Filters\ApiAuthenticationFilter.cs" />
@@ -281,18 +270,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\BaseApiController.cs" />
-    <Compile Include="Infrastructure\Config.cs" />
-    <Compile Include="Infrastructure\ExceptionHandler.cs" />
-    <Compile Include="Infrastructure\IConfig.cs" />
-    <Compile Include="Infrastructure\IExceptionHandler.cs" />
-    <Compile Include="Infrastructure\ILogger.cs" />
-    <Compile Include="Infrastructure\ISecurityProvider.cs" />
-    <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Infrastructure\SecurityProvider.cs" />
-    <Compile Include="Models\ClassA.cs" />
-    <Compile Include="Models\ClassB.cs" />
-    <Compile Include="Models\EntityBase.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
