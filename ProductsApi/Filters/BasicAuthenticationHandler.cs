@@ -29,7 +29,10 @@ namespace ProductsApi.Filters
                 //if (HttpContext.Current != null)
                 //    HttpContext.Current.User = principal;
             }
-
+            else
+            {
+                return Task.Run(() => { return request.CreateResponse(HttpStatusCode.BadRequest); });
+            }
             return base.SendAsync(request, cancellationToken)
                 .ContinueWith(task =>
                 {
