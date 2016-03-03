@@ -7,6 +7,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ProductsApi.Filters
 {
@@ -26,8 +27,8 @@ namespace ProductsApi.Filters
                 var principal = new GenericPrincipal(identity, null);
 
                 Thread.CurrentPrincipal = principal;
-                //if (HttpContext.Current != null)
-                //    HttpContext.Current.User = principal;
+                if (HttpContext.Current != null)
+                    HttpContext.Current.User = principal;
             }
             else
             {
