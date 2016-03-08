@@ -11,3 +11,13 @@ injection, Autofac.
 
 5- to authenticate add a Header with the value of "Basic YWZzaGluOlBhc3N3b3JkIQ=="
 then you are good to go
+
+We are using a MessageHandler called BasicAuthentictionHandler for authentication as well as an implementation of AuthorizationFilterAttribute for Authorization filter.
+Using a MessageHandler which has to implement DelegatingHandler helps us check the request at the early stages of asp.net web api pipeline and validate if request has Authorization header 
+from which we can get a BAsicAuthenticationIdentity and set the Thread.GenericPrincipal with that Identity.
+
+
+We could have inherited our Authorization filter from AuthorizeAttribute. However, we do not need Role in this application so implementing AuthorizationFilterAttribute
+sound plausible. 
+
+MyAuthorization class has implemented AuthorizeAttribute which we do not need 

@@ -16,10 +16,13 @@ using DataAccess;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using ProductsApi.Filters;
+using System.Web;
+using System.Threading;
 
 namespace ProductsApi.Controllers
 {
     [ApiAuthenticationFilter]
+//    [MyAuthorizationFilter]
 	[RoutePrefix("api/Products")]
 	[EnableCors("*","*","*")]
     public class ProductsController : BaseApiController
@@ -54,6 +57,11 @@ namespace ProductsApi.Controllers
 		[HttpGet]
 	    public IQueryable<Product> GetProducts()
 	    {
+            if (HttpContext.Current != null)
+            {
+                var identity = HttpContext.Current.User.Identity as BasicAuthenticationIdentity;
+                var user = Thread.CurrentPrincipal.Identity as BasicAuthenticationIdentity; 
+            }
 		    return Products.AsQueryable();
 	    }
 
