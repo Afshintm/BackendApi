@@ -18,6 +18,7 @@ using Newtonsoft.Json;
 using ProductsApi.Filters;
 using System.Web;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ProductsApi.Controllers
 {
@@ -64,8 +65,18 @@ namespace ProductsApi.Controllers
             }
 		    return Products.AsQueryable();
 	    }
-
-		
+        /// <summary>
+        /// Returns the product Async as in non blocking manner when connecting to database
+        /// </summary>
+        /// <returns></returns>
+        [Route("async")]
+        [HttpGet]
+        public async Task<IQueryable<Product>> GetProductsAsync() {
+            var result =  Task.Run(() => {
+                return GetProducts();
+            });
+            return await result ;
+        }
 		/// <summary>
         /// Returning an HttpResponseMessage class containing the serialized product object
         /// This way we can have more control over the content returned as response.  
