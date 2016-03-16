@@ -206,7 +206,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Content\WebApiTestClient.styles.css" />
     <Content Include="Content\WebApiTestClient.views.html" />
-    <Content Include="Docs\XmlDocument.xml" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="OldConfig.txt" />
