@@ -488,6 +488,12 @@
             </summary>
             <returns>Returns a CLR type which is getting serialised based on Accept values of the request </returns>
         </member>
+        <member name="M:ProductsApi.Controllers.ProductsController.GetProductsAsync">
+            <summary>
+            Returns the product Async as in non blocking manner when connecting to database
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ProductsApi.Controllers.ProductsController.GetProduct(System.Int32)">
             <summary>
             Returning an HttpResponseMessage class containing the serialized product object
