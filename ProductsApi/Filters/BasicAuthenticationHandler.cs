@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
@@ -19,31 +20,45 @@ namespace ProductsApi.Filters
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                                                                CancellationToken cancellationToken)
         {
-            var credentials = ParseAuthorizationHeader(request);
+			
+	        var claimsPrincipal = (ClaimsPrincipal) Thread.CurrentPrincipal;
+	        if (claimsPrincipal != null)
+	        {
+		        return base.SendAsync(request, cancellationToken).ContinueWith(t =>
+		        {
+			        var resp = t.Result;
 
-            if (credentials != null)
-            {
-                var identity = new BasicAuthenticationIdentity(credentials.Name, credentials.Password);
-                var principal = new GenericPrincipal(identity, null);
+			        return resp;
+		        });
+	        }
+	        else
+	        {
+		        var credentials = ParseAuthorizationHeader(request);
 
-                Thread.CurrentPrincipal = principal;
-                if (HttpContext.Current != null)
-                    HttpContext.Current.User = principal;
-            }
-            else
-            {
-                return Task.Run(() => { return request.CreateResponse(HttpStatusCode.BadRequest); });
-            }
-            return base.SendAsync(request, cancellationToken)
-                .ContinueWith(task =>
-                {
-                    var response = task.Result;
-                    if (credentials == null && response.StatusCode == HttpStatusCode.Unauthorized)
-                        Challenge(request, response);
+		        if (credentials != null)
+		        {
+			        var identity = new BasicAuthenticationIdentity(credentials.Name, credentials.Password);
+			        var principal = new GenericPrincipal(identity, null);
+
+			        Thread.CurrentPrincipal = principal;
+			        if (HttpContext.Current != null)
+				        HttpContext.Current.User = principal;
+		        }
+		        else
+		        {
+			        return Task.Run(() => { return request.CreateResponse(HttpStatusCode.BadRequest); });
+		        }
+		        return base.SendAsync(request, cancellationToken)
+			        .ContinueWith(task =>
+			        {
+				        var response = task.Result;
+				        if (credentials == null && response.StatusCode == HttpStatusCode.Unauthorized)
+					        Challenge(request, response);
 
 
-                    return response;
-                });
+				        return response;
+			        });
+	        }
         }
 
         /// <summary>

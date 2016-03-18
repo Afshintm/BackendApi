@@ -260,6 +260,7 @@
     <Compile Include="Filters\ApiAuthenticationFilter.cs" />
     <Compile Include="Filters\BasicAuthenticationHandler.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Filters\BearerAuthenticationTokenHandler.cs" />
     <Compile Include="Filters\Class1.cs" />
     <Compile Include="Filters\IdentityBasicAuthenticationAttribute.cs" />
     <Compile Include="Filters\MyAuthorizationFilter.cs" />

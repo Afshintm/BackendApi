@@ -23,6 +23,8 @@ namespace ProductsApi
 			// set DependencyResolver for MVC 
 			//DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Current.ContainerManager.Container);
 
+	        GlobalConfiguration.Configuration.MessageHandlers.Add(new BearerAuthenticationTokenHandler());
+
             GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationHandler());
 
             AreaRegistration.RegisterAllAreas();
