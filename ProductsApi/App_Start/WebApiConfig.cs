@@ -9,28 +9,26 @@ namespace ProductsApi
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static HttpConfiguration Register()
         {
 
+            // Web API configuration and services
+            var config = new HttpConfiguration();
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-			// Web API configuration and services
+            // Web API configuration and services
 
-			// Web API routes
-			config.MapHttpAttributeRoutes();
+            // Web API routes
+            config.MapHttpAttributeRoutes();
 
-			config.EnableCors();
-			config.AddODataQueryFilter();
-	        
-	        //config.Routes.MapHttpRoute(
-	        //	name: "DefaultApi", 
-	        //	routeTemplate: "api/{controller}/{action}/id", 
-	        //	defaults: new {controller = "Products", action = "GetAll", id = RouteParameter.Optional});
+            config.EnableCors();
+            config.AddODataQueryFilter();
+            config.Filters.Add(new AuthorizeAttribute());
 
-	        //config.Routes.MapHttpRoute(
-	        //	name: "DefaultApi",
-	        //	routeTemplate: "api/{controller}/{id}",
-	        //	defaults: new { id = RouteParameter.Optional}
-	        //);
+            return config;
         }
     }
+
+
+
 }

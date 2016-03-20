@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace ProductsApi.Controllers
 {
-    [ApiAuthenticationFilter]
+   // [ApiAuthenticationFilter]
 //    [MyAuthorizationFilter]
 	[RoutePrefix("api/Products")]
 	[EnableCors("*","*","*")]

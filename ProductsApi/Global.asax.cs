@@ -11,25 +11,25 @@ namespace ProductsApi
         protected void Application_Start()
         {
 
-			// initialize engine context using the Ninja.Core
-			// Running the Build method on the container
-			// finding instances of IDependencyRegistrar and running its register method 
+            // initialize engine context using the Ninja.Core
+            // Running the Build method on the container
+            // finding instances of IDependencyRegistrar and running its register method 
 
-			EngineContext.Initialize(false);
+            //EngineContext.Initialize(false);
 
-			//set dependency resolver for webApi
-			GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(EngineContext.Current.ContainerManager.Container);
+            //set dependency resolver for webApi
+            //GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(EngineContext.Current.ContainerManager.Container);
 
-			// set DependencyResolver for MVC 
-			//DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Current.ContainerManager.Container);
+            // set DependencyResolver for MVC 
+            //DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Current.ContainerManager.Container);
 
-	        GlobalConfiguration.Configuration.MessageHandlers.Add(new BearerAuthenticationTokenHandler());
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new BearerAuthenticationTokenHandler());
 
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationHandler());
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationHandler());
 
             AreaRegistration.RegisterAllAreas();
 
-			GlobalConfiguration.Configure(WebApiConfig.Register);
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
 
         }
     }
