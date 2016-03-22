@@ -15,33 +15,16 @@ namespace ProductsApi
     {
         public void Configuration(IAppBuilder app)
         {
-            JwtSecurityTokenHandler.InboundClaimTypeMap.Clear();
-
             // accept access tokens from identityserver and require a scope of 'api1'
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
             {
-                Authority = "https://localhost:44333/core",
-                ValidationMode = ValidationMode.ValidationEndpoint,
-
-                RequiredScopes = new[] { "api1" }
+                Authority = "https://localhost:44334/core",
+				ClientId = "clientcredentials.client",
+				ClientSecret = "secret",
+                RequiredScopes = new[] { "write" }
             });
 
-
-            
-
-            //app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
-            //{
-            //    Authority = "https://localhost:44333/core",
-            //    RequiredScopes = new[] { "write" },
-
-            //    // client credentials for the introspection endpoint
-            //    ClientId = "write",
-            //    ClientSecret = "secret"
-            //});
-
-
-
-            //http://docs.autofac.org/en/latest/integration/webapi.html#owin-integration
+			//http://docs.autofac.org/en/latest/integration/webapi.html#owin-integration
             // STANDARD WEB API SETUP:
 
             // Get your HttpConfiguration. In OWIN, you'll create one

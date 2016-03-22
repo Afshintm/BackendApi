@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace ProductsApi.Controllers
 {
-
+	[Authorize]
     [Route("test")]
     public class TestController : ApiController
     {
