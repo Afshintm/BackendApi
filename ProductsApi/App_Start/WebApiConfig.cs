@@ -9,23 +9,23 @@ namespace ProductsApi
 {
     public static class WebApiConfig
     {
-        public static HttpConfiguration Register()
+        public static HttpConfiguration Register(HttpConfiguration Config)
         {
-
             // Web API configuration and services
-            var config = new HttpConfiguration();
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            // var config = new HttpConfiguration();
+            //config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+           
+            Config.MapHttpAttributeRoutes();
 
-            config.EnableCors();
-            config.AddODataQueryFilter();
-            config.Filters.Add(new AuthorizeAttribute());
+            Config.EnableCors();
+            Config.AddODataQueryFilter();
+            Config.Filters.Add(new AuthorizeAttribute());
 
-            return config;
+            return Config;
         }
     }
 
