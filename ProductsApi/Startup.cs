@@ -35,16 +35,12 @@ namespace ProductsApi
 			//http://docs.autofac.org/en/latest/integration/webapi.html#owin-integration
             // STANDARD WEB API SETUP:
 
-            //Config = new HttpConfiguration();
-
-            
-
-
             // Get your HttpConfiguration. In OWIN, you'll create one
             // rather than using GlobalConfiguration.Here getting result of calling Register method of WebApiConfig
             WebApiConfig.Register(Config);
 
-            AreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
+
             // Register your Web API controllers.
 
             // Run other optional steps, like registering filters,
