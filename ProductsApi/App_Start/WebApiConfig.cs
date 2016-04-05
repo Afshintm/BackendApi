@@ -23,6 +23,10 @@ namespace ProductsApi
 
             Config.EnableCors();
             Config.AddODataQueryFilter();
+
+            //Config.MessageHandlers.Add(BearerAuthenticationTokenHandler);
+            //Config.MessageHandlers.Add(BasicAuthenticationHandler); 
+
             Config.Filters.Add(new AuthorizeAttribute());
 
             return Config;
