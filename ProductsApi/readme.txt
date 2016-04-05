@@ -24,4 +24,4 @@ MyAuthorization class has implemented AuthorizeAttribute which we do not need
 In order to authenticate add a Header with the value of "Basic YWZzaGluOlBhc3N3b3JkIQ==" then you are good to go
 
 
-
+Trying to use Identity Server in the web api as opposed to other means of authentication
