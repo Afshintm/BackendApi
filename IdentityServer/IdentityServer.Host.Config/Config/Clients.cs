@@ -21,6 +21,9 @@ using System.Security.Claims;
 
 namespace IdentityServer.Host.Configuration.Config
 {
+    /// <summary>
+    /// Clients are from main IdentityServer.Clients project
+    /// </summary>
     public class Clients
     {
         public static List<Client> Get()
