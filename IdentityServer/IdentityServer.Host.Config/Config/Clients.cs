@@ -68,16 +68,50 @@ namespace IdentityServer.Host.Configuration.Config
                     AccessTokenType = AccessTokenType.Reference,
                 },
 
+				 /////////////////////////////////////////////////////////////
+                // JavaScript Implicit Client - Manual
+                /////////////////////////////////////////////////////////////
+                new Client
+                {
+                    ClientName = "JavaScript Implicit Client - Manual",
+                    ClientId = "js.manual",
+                    Flow = Flows.Implicit,
+
+                    AllowedScopes = new List<string>
+                    {
+                        "openid",
+                        "email",
+                        "read",
+                        "write"
+                    },
+
+                    ClientUri = "https://identityserver.io",
+
+                    RequireConsent = true,
+                    AllowRememberConsent = true,
+
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:37046/index.html",
+                    },
+
+                    AllowedCorsOrigins = new List<string>
+                    {
+                        "http://localhost:37046"
+                    }
+                },
+
+
                 new Client
                 {
                     ClientName = "Implicit Client Demo",
                     Enabled = true,
 
                     ClientId = "implicitclient",
-                    ClientSecrets = new List<Secret>
-                    { 
-                        new Secret("secret".Sha256())
-                    },
+					ClientSecrets = new List<Secret>
+					{ 
+						new Secret("secret".Sha256())
+					},
 
                     Flow = Flows.Implicit,
                     

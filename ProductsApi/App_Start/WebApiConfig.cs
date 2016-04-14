@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.OData.Extensions;
 
 
@@ -21,7 +22,7 @@ namespace ProductsApi
            
             Config.MapHttpAttributeRoutes();
 
-            Config.EnableCors();
+			Config.EnableCors(new EnableCorsAttribute("http://localhost:21575, http://localhost:37045, http://localhost:37046", "accept, authorization", "GET", "WWW-Authenticate"));
             Config.AddODataQueryFilter();
 
             //Config.MessageHandlers.Add(BearerAuthenticationTokenHandler);
