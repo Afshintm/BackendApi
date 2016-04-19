@@ -21,19 +21,20 @@ namespace ProductsApi.Filters
         {
             var credentials = ParseAuthorizationHeader(request);
 
-            if (credentials != null)
-            {
-                var identity = new BasicAuthenticationIdentity(credentials.Name, credentials.Password);
-                var principal = new GenericPrincipal(identity, null);
+			if (credentials != null)
+			{
+				var identity = new BasicAuthenticationIdentity(credentials.Name, credentials.Password);
+				var principal = new GenericPrincipal(identity, null);
 
-                Thread.CurrentPrincipal = principal;
-                if (HttpContext.Current != null)
-                    HttpContext.Current.User = principal;
-            }
-            else
-            {
-                return Task.Run(() => { return request.CreateResponse(HttpStatusCode.BadRequest); });
-            }
+				Thread.CurrentPrincipal = principal;
+				if (HttpContext.Current != null)
+					HttpContext.Current.User = principal;
+			}
+			else
+			{
+				//return Task.Run(() => { return request.CreateResponse(HttpStatusCode.BadRequest); });
+			}
+
             return base.SendAsync(request, cancellationToken)
                 .ContinueWith(task =>
                 {
