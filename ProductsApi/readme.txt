@@ -23,5 +23,7 @@ MyAuthorization class has implemented AuthorizeAttribute which we do not need
 
 In order to authenticate add a Header with the value of "Basic YWZzaGluOlBhc3N3b3JkIQ==" then you are good to go
 
+Develop branch is working with jomon in frontend and has been deployed to azure with this address http://afshinproductsdevelop.azurewebsites.net 
 
+Develop needs Barer Authenticatin token which is being provided by HttpProvider.Request intrceptor in jomon frontend
 
