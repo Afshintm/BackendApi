@@ -8,6 +8,7 @@ using Ioc.Core.Infrastructure;
 using Ioc.Core.Infrastructure.DependencyManagement;
 using BusinessServices;
 using SalesModel;
+using System;
 
 namespace ProductsApi
 {
@@ -81,6 +82,11 @@ namespace ProductsApi
             builder.RegisterType<Service2>().As<IService2>().InstancePerDependency();
 
 			builder.RegisterType<NewProductServices>().As<IProductServices>().InstancePerDependency();
+
+            builder.Register<Func<string, Class1>>(c => ((s) =>
+            {
+                return new Class1(s);
+            })).As<Func<string, IClass1>>();
 
             //builder.Register<Func<string, int, IClassA>>(c => { return new ClassA(); });
 
