@@ -13,6 +13,11 @@
 #Backup folder
 Backup/
 
+#Ignore .vs folder 
+.vs
+.vs/
+.vs/*
+
 # mstest test results
 TestResults
 
