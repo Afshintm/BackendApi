@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="ClassA.cs" />
     <Compile Include="ClassB.cs" />
     <Compile Include="EntityBase.cs" />

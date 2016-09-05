@@ -1,32 +1,29 @@
-﻿using System;
+﻿using ProductsApi.Infrastructure;
+using SalesModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Web.Http;
-using Newtonsoft.Json;
+using System.Web.Http.Cors;
 
 namespace ProductsApi.Controllers
 {
-	[Authorize]
-    [Route("test")]
-    public class TestController : ApiController
+    [RoutePrefix("api/Tests")]
+    [EnableCors("*", "*", "*")]
+    public class TestController : BaseApiController
     {
-        public IHttpActionResult Get()
-        {
-            var claimsPrincipal = User as ClaimsPrincipal;
-            var returnJson = String.Empty;
-
-            //simply returning jsonObject claimsPrincipal if there is any
-            if (claimsPrincipal!=null)
-                returnJson = JsonConvert.SerializeObject(claimsPrincipal, Formatting.Indented, 
-                    new JsonSerializerSettings {
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                    });
-            return Ok(returnJson);
+        private Func<string, IClass1> _class1Factory;
+        public TestController(Func<string, IClass1> class1Facory) {
+            _class1Factory = class1Facory;
+        }
+        [Route("")]
+        [HttpGet]
+        public IHttpActionResult GetAllTest() {
+            IClass1 c1 = _class1Factory("afshin");
+            
+            return Ok( c1.Name);
         }
     }
 }
-
-  

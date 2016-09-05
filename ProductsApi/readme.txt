@@ -1,4 +1,4 @@
-﻿This is a simple webapi2 project in which 
+This is a simple webapi2 project in which 
 
 1-	Cross origin resource sharing is enabled for the Api to be able to serve any request from other domains and work with any front end project with no same origin policy issue.
  
@@ -23,5 +23,8 @@ MyAuthorization class has implemented AuthorizeAttribute which we do not need
 
 In order to authenticate add a Header with the value of "Basic YWZzaGluOlBhc3N3b3JkIQ==" then you are good to go
 
+Develop branch is working with jomon in frontend and has been deployed to azure with this address http://afshinproductsdevelop.azurewebsites.net 
 
 Trying to use Identity Server in the web api as opposed to other means of authentication
+Develop needs Barer Authenticatin token which is being provided by HttpProvider.Request intrceptor in jomon frontend
+

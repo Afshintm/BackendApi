@@ -254,6 +254,31 @@
             Initializes a new instance of the <see cref="T:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
             </summary>
         </member>
+        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:ProductsApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
         <member name="M:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
             <summary>
             Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
@@ -326,31 +351,6 @@
             <param name="type">The type.</param>
             <param name="mediaType">Type of the media.</param>
             <returns></returns>
-        </member>
-        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
-            <summary>
-            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
-            </summary>
-        </member>
-        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
-            <summary>
-            Gets the objects that are used directly as samples for certain actions.
-            </summary>
-        </member>
-        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
-            <summary>
-            Gets the objects that are serialized as samples by the supported formatters.
-            </summary>
-        </member>
-        <member name="P:ProductsApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
-            <summary>
-            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
-            stopping when the factory successfully returns a non-<see langref="null"/> object.
-            </summary>
-            <remarks>
-            Collection includes just <see cref="M:ProductsApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
-            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
-            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
         </member>
         <member name="T:ProductsApi.Areas.HelpPage.HelpPageSampleKey">
             <summary>
@@ -536,44 +536,6 @@
             Custom Authentication Filter Extending basic Authentication
             </summary>
         </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor">
-            <summary>
-            Public default Constructor
-            </summary>
-        </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor(System.Boolean)">
-            <summary>
-            parameter isActive explicitly enables/disables this filetr.
-            </summary>
-            <param name="isActive"></param>
-        </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
-            <summary>
-            Checks basic authentication request
-            </summary>
-            <param name="filterContext"></param>
-        </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext)">
-            <summary>
-            Virtual method.Can be overriden with the custom Authorization.
-            </summary>
-            <param name="user"></param>
-            <param name="pass"></param>
-            <param name="filterContext"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.FetchAuthHeader(System.Web.Http.Controllers.HttpActionContext)">
-            <summary>
-            Checks for autrhorization header in the request and parses it, creates user credentials and returns as BasicAuthenticationIdentity
-            </summary>
-            <param name="filterContext"></param>
-        </member>
-        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.ChallengeAuthRequest(System.Web.Http.Controllers.HttpActionContext)">
-            <summary>
-            Send the Authentication Challenge request
-            </summary>
-            <param name="filterContext"></param>
-        </member>
         <member name="M:ProductsApi.Filters.ApiAuthenticationFilter.#ctor">
             <summary>
             Default Authentication Constructor
@@ -612,13 +574,6 @@
             Basic Authentication identity
             </summary>
         </member>
-        <member name="M:ProductsApi.Filters.BasicAuthenticationIdentity.#ctor(System.String,System.String)">
-            <summary>
-            Basic Authentication Identity Constructor
-            </summary>
-            <param name="userName"></param>
-            <param name="password"></param>
-        </member>
         <member name="P:ProductsApi.Filters.BasicAuthenticationIdentity.Password">
             <summary>
             Get/Set for password
@@ -634,23 +589,55 @@
             Get/Set for UserId
             </summary>
         </member>
-        <member name="M:ProductsApi.Filters.BearerAuthenticationTokenHandler.ParseAuthorizationHeader(System.Net.Http.HttpRequestMessage)">
+        <member name="M:ProductsApi.Filters.BasicAuthenticationIdentity.#ctor(System.String,System.String)">
             <summary>
-            Parses the Authorization header and creates user credentials
+            Basic Authentication Identity Constructor
             </summary>
-            <param name="actionContext"></param>
-        </member>
-        <member name="M:ProductsApi.Filters.BearerAuthenticationTokenHandler.Challenge(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage)">
-            <summary>
-            Send the Authentication Challenge request
-            </summary>
-            <param name="message"></param>
-            <param name="actionContext"></param>
+            <param name="userName"></param>
+            <param name="password"></param>
         </member>
         <member name="T:ProductsApi.Filters.UserProvider">
             <summary>
             read from database
             </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor">
+            <summary>
+            Public default Constructor
+            </summary>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.#ctor(System.Boolean)">
+            <summary>
+            parameter isActive explicitly enables/disables this filetr.
+            </summary>
+            <param name="isActive"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Checks basic authentication request
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.OnAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Virtual method.Can be overriden with the custom Authorization.
+            </summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <param name="filterContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.FetchAuthHeader(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Checks for autrhorization header in the request and parses it, creates user credentials and returns as BasicAuthenticationIdentity
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.GenericAuthenticationFilter.ChallengeAuthRequest(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Send the Authentication Challenge request
+            </summary>
+            <param name="filterContext"></param>
         </member>
     </members>
 </doc>
