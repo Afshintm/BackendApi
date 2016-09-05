@@ -596,6 +596,19 @@
             <param name="userName"></param>
             <param name="password"></param>
         </member>
+        <member name="M:ProductsApi.Filters.BearerAuthenticationTokenHandler.ParseAuthorizationHeader(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Parses the Authorization header and creates user credentials
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:ProductsApi.Filters.BearerAuthenticationTokenHandler.Challenge(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Send the Authentication Challenge request
+            </summary>
+            <param name="message"></param>
+            <param name="actionContext"></param>
+        </member>
         <member name="T:ProductsApi.Filters.UserProvider">
             <summary>
             read from database
