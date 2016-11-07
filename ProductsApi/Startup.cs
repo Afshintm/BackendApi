@@ -29,7 +29,8 @@ namespace ProductsApi
                 Authority = "https://localhost:44302/core",
 				ClientId = "clientcredentials.client",
 				ClientSecret = "secret",
-                RequiredScopes = new[] { "write" }
+                RequiredScopes = new[] { "write" },
+                DelayLoadMetadata = true
             });
 
 			//http://docs.autofac.org/en/latest/integration/webapi.html#owin-integration

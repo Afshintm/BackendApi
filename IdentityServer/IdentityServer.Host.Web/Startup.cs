@@ -20,7 +20,7 @@ namespace IdentityServer.Host.Web
                 .CreateLogger();
 
 			app.UseIdentityServer();
-
+            //app.UseCors(CorsOptions.AllowAll);
 
             //var factory = new IdentityServerServiceFactory()
             //            .UseInMemoryUsers(Users.Get())
@@ -40,6 +40,6 @@ namespace IdentityServer.Host.Web
 
 
 
-		}
+        }
 	}
 }

@@ -13,7 +13,7 @@ using System.Web.Http.Cors;
 namespace ProductsApi.Controllers
 {
     [RoutePrefix("test")]
-    [EnableCors("*", "*", "*")]
+    //[EnableCors("*", "*", "*")]
     public class TestController : BaseApiController
     {
         private Func<string, IClass1> _class1Factory;

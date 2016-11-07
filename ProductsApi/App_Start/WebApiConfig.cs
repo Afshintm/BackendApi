@@ -23,6 +23,8 @@ namespace ProductsApi
             Config.MapHttpAttributeRoutes();
 
 			Config.EnableCors(new EnableCorsAttribute("http://localhost:21575, http://localhost:37045, http://localhost:37046", "accept, authorization", "GET", "WWW-Authenticate"));
+            //Config.EnableCors(new EnableCorsAttribute("*", "*", "*", "WWW-Authenticate")) ;
+
             Config.AddODataQueryFilter();
 
             //Config.MessageHandlers.Add(BearerAuthenticationTokenHandler);

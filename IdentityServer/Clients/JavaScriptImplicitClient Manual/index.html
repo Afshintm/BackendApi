@@ -213,7 +213,7 @@
 
         function callApi() {
             clear();
-            getJson("http://localhost/ProductsApi/test", access_token).then(function (response) {
+            getJson("http://localhost/ProductsApi/test/name", access_token).then(function (response) {
                 show(response);
             }, showError);
         }
