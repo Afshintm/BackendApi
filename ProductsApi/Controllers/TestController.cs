@@ -24,8 +24,9 @@ namespace ProductsApi.Controllers
         [HttpGet]
         public IHttpActionResult GetName() {
             IClass1 c1 = _class1Factory("afshin");
-            
-            return Ok( c1.Name);
+
+            var c1JsonString = JsonConvert.SerializeObject(c1);
+            return Ok(c1JsonString);
         }
         [Route("")]
         [HttpGet]
