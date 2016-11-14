@@ -26,8 +26,9 @@ namespace ProductsApi
             // accept access tokens from identityserver and require a scope of 'api1'
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
             {
-                Authority = "https://localhost:44302/core",
-				ClientId = "clientcredentials.client",
+                //Authority = "https://localhost:44302/core",
+                Authority = "https://afshinteymo7572/core",
+                ClientId = "clientcredentials.client",
 				ClientSecret = "secret",
                 RequiredScopes = new[] { "write" },
                 DelayLoadMetadata = true
