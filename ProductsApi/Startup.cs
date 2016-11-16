@@ -27,7 +27,7 @@ namespace ProductsApi
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
             {
                 //Authority = "https://localhost:44302/core",
-                Authority = "https://afshinteymo7572/core",
+                Authority = "https://IdentityServer3.com/core",
                 ClientId = "clientcredentials.client",
 				ClientSecret = "secret",
                 RequiredScopes = new[] { "write" },
