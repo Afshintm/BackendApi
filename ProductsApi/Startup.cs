@@ -26,9 +26,9 @@ namespace ProductsApi
             // accept access tokens from identityserver and require a scope of 'api1'
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
             {
-                //Authority = "https://localhost:44302/core",
+                Authority = "https://localhost:44302/core",
                 //Authority = "https://IdentityServer3.com/core",
-                Authority = "https://idserver3.azurewebsites.net/core",
+                //Authority = "https://idserver3.azurewebsites.net/core",
                 ClientId = "clientcredentials.client",
 				ClientSecret = "secret",
                 RequiredScopes = new[] { "write" },

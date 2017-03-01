@@ -1,0 +1,13 @@
+﻿This project is the main identity server for the solution 
+It has to be working with SSL/TSL so the protocol would be https
+if you want to host it on iis Express then 
+mac windows 10 iisExpress address:
+https://localhost:44302/
+
+
+Alternatively you can host it on azure website like the following
+Azure Website address:
+https://idserver3.azurewebsites.net/core/.well-known/openid-configuration
+
+remember that .vs folder including applicationhost.config file which contains all these settinngs regarding the uris is not version controlled.
+ 
